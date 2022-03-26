@@ -23,14 +23,8 @@ export const RestaurantsInfo = ({ restaurant = {} }) => {
   );
 };
 
-// const styles = StyleSheet.create({
-//     card: { backgroundColor: "white" },
-//     cover: { padding: 14, backgroundColor: "white" },
-//     textStyling: { padding: 16 },
-// });
-
 const styles = StyleSheet.create({
   card: { backgroundColor: "white" },
-  cover: { padding: 14, backgroundColor: "white" },
-  textStyling: { padding: 16 },
+  cover: { padding: 15, backgroundColor: "white" },
+  textStyling: { padding: 10 },
 });
