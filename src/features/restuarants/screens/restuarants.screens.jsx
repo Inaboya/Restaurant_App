@@ -6,18 +6,17 @@ import styled from "styled-components/native";
 
 const SafeArea = styled.SafeAreaView`
   flex: 1;
-  marginTop: ${StatusBar.currentHeight}px;
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `;
 
-const Search = styled(Searchbar)`
+const SearchBarContainer = styled.View`
   padding: 16px;
 `;
 
-
 const ListView = styled.View`
-    flex: 1;
-    padding: 16px;
-    backgroundColor: blue;
+  flex: 1;
+  padding: 16px;
+  background-color: blue;
 `;
 
 export const RestuarantsScreens = () => {
@@ -28,17 +27,15 @@ export const RestuarantsScreens = () => {
   };
   return (
     <SafeArea>
-      <View>
-        <Search
+      <SearchBarContainer>
+        <Searchbar
           placeholder="Search for your favorite eatries..."
           onChangeText={onChangeSearch}
         />
-      </View>
+      </SearchBarContainer>
       <ListView>
         <RestaurantsInfoCard />
       </ListView>
     </SafeArea>
   );
 };
-
-
