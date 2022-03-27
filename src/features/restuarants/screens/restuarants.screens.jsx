@@ -10,12 +10,12 @@ const SafeArea = styled.SafeAreaView`
 `;
 
 const SearchBarContainer = styled.View`
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 const ListView = styled.View`
   flex: 1;
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
   background-color: blue;
 `;
 
