@@ -1,51 +1,22 @@
 import React, { useState } from "react";
-import { Text, Image, View } from "react-native";
+import { Image } from "react-native";
+import { Text } from "../../../components/typography/text.component";
 import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
-import { Card } from "react-native-paper";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 import { Spacer } from "../../../components/spacer/spacer.component";
+import {
+  RestuarantsCard,
+  RestuarantsCardCover,
+  Address,
+  FlexDiv,
+  Open,
+  Info,
+  Rating,
+  Icon,
+} from "./restuarants-info-style";
 
-const RestuarantsCard = styled(Card)`
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const RestuarantsCardCover = styled(Card.Cover)`
-  padding: ${(props) => props.theme.space[2]};
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const Title = styled.Text`
-  font-family: ${(props) => props.theme.fonts.nanospace};
-  font-size: ${(props) => props.theme.fontSizes.body};
-  color: ${(props) => props.theme.colors.ui.primary};
-`;
-
-const Address = styled.Text`
-  font-family: ${(props) => props.theme.fonts.nanospace};
-  font-size: ${(props) => props.theme.fontSizes.caption};
-`;
-
-const FlexDiv = styled.View`
-  flex-direction: row;
-  align-items: center;
-`;
-
-const Open = styled.View`
-  flex: 1;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
-const Info = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const Rating = styled.View`
-  flex-direction: row;
-  padding-top: ${(props) => props.theme.space[1]};
-  padding-bottom: ${(props) => props.theme.space[1]};
-`;
 
 export const RestaurantsInfoCard = ({ restaurant = {} }) => {
   const {
@@ -67,7 +38,7 @@ export const RestaurantsInfoCard = ({ restaurant = {} }) => {
       <RestuarantsCard elevation={5}>
         <RestuarantsCardCover key={name} source={{ uri: photos[0] }} />
         <Info>
-          <Title>{name}</Title>
+          <Text variant="label">{name}</Text>
 
           <FlexDiv>
             <Rating>
@@ -82,8 +53,8 @@ export const RestaurantsInfoCard = ({ restaurant = {} }) => {
 
             <Open>
               {isClosedTemporarily && (
-                <Text variant="label" style={{ color: "red" }}>
-                  CLOSED TEMPORARILY
+                <Text variant="error">
+                  CLOSED TEMPORARILY 
                 </Text>
               )}
 
@@ -94,8 +65,7 @@ export const RestaurantsInfoCard = ({ restaurant = {} }) => {
               )}
 
               <Spacer position="left" size="large">
-                <Image
-                  style={{ height: 15, width: 15 }}
+                <Icon
                   source={{ uri: icon }}
                 />
               </Spacer>
